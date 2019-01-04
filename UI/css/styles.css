@@ -1,8 +1,7 @@
 body {
     position: relative;
-    margin-left: 0em;
-    margin-right: 0rem;
-    margin-top: 0rem;
+    margin: 0;
+    padding: 0;
 }
 
 /*Site wide container class, should start with a dot.. */
@@ -27,6 +26,14 @@ ul{
     color: white;
 }
 
+.button_class{
+    height:38px;
+    background:#e8491d;
+    border:0;
+    padding-left: 20px;
+    padding-right:20px;
+    color:#ffffff;
+}
 /* Site header style */
 header{
     background-color: rgba(20, 20, 39, 0.363);
@@ -54,7 +61,8 @@ header nav{
 header a{
     text-decoration: none;
     font-size: 15px;
-    color: chocolate;
+    color: white;
+    text-transform: capitalize;
 }
 
 /*style the list items (menu links)*/
@@ -63,22 +71,44 @@ header li{
     padding: 0 20px 0 20px;
 }
 
+ul#top-feeds li{
+    list-style: none;
+    padding:20px;
+    border: #cccccc solid 1px;
+    margin-bottom:5px;
+    /* background:#e6e6e6; */
+}
+
 header a:hover{
     color: grey;
     font-weight: bold;
 }
 
+header .highlighted a{
+    color:#080200;
+    font-weight:bold;
+  }
+
 /*Style our main body section*/
 
-aside#top_feeds{
-    float: left;
-    width: 20%;
+aside#sidebar{
+    float: right;
+    width: 25%;
     margin-top: 10px;
 }
 
+aside#sidebar .register input, aside#sidebar .register textarea{
+    width:90%;
+    padding:5px;
+}
+
+#aside#sidebar .register .message p{
+    font-size: 5px;
+}
+
 article#main-col{
-    float: right;
-    width: 75%;
+    float: left;
+    width: 70%;
 }
 
 #main_body p{
