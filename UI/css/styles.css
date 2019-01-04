@@ -77,15 +77,20 @@ header a:hover{
 
 /*Style our main body section*/
 
-aside#top_feeds{
-    float: left;
-    width: 20%;
+aside#sidebar{
+    float: right;
+    width: 25%;
     margin-top: 10px;
 }
 
+aside#sidebar .register input, aside#sidebar .register textarea{
+    width:90%;
+    padding:5px;
+}
+
 article#main-col{
-    float: right;
-    width: 75%;
+    float: left;
+    width: 70%;
 }
 
 #main_body p{
