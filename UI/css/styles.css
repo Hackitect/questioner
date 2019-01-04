@@ -61,7 +61,8 @@ header nav{
 header a{
     text-decoration: none;
     font-size: 15px;
-    color: chocolate;
+    color: white;
+    text-transform: capitalize;
 }
 
 /*style the list items (menu links)*/
@@ -70,10 +71,23 @@ header li{
     padding: 0 20px 0 20px;
 }
 
+ul#top-feeds li{
+    list-style: none;
+    padding:20px;
+    border: #cccccc solid 1px;
+    margin-bottom:5px;
+    /* background:#e6e6e6; */
+}
+
 header a:hover{
     color: grey;
     font-weight: bold;
 }
+
+header .highlighted a{
+    color:#080200;
+    font-weight:bold;
+  }
 
 /*Style our main body section*/
 
@@ -86,6 +100,10 @@ aside#sidebar{
 aside#sidebar .register input, aside#sidebar .register textarea{
     width:90%;
     padding:5px;
+}
+
+#aside#sidebar .register .message p{
+    font-size: 5px;
 }
 
 article#main-col{
