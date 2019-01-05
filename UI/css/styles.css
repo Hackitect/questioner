@@ -111,6 +111,11 @@ article#main-col{
     width: 70%;
 }
 
+article#main-col p{
+    border-top: #35424a solid 1px;
+
+}
+
 #main_body p{
     text-align: justify;
     font-size: 20px;
