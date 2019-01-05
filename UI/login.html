@@ -41,12 +41,8 @@
         
             <aside id="sidebar">
                 <div class="darkmode">
-                  <h3>Register Here</h3>
-                  <form class="register">
-                                <div>
-                                    <label>Name</label><br>
-                                    <input type="text" required placeholder="Name">
-                                </div>
+                  <h3>Login here</h3>
+                  <!-- <form class="register">
                                 <div>
                                     <label>Email</label><br>
                                     <input type="email" required placeholder="Email Address">
@@ -55,13 +51,19 @@
                                     <label>Password</label><br>
                                     <input type="Password" required placeholder="Password">
                                 </div>
-                              <div>
-                                    <label>Confirm  Password</label><br>
-                                    <input type="Password" placeholder="Password"><br>
-                                </div>
-                                <button class="button_class" type="submit">Register</button>
-                                <h4>Already registered? <a href="#">Sign In</a></h4>
-                          </form>
+                                <button class="button_class" type="submit">Login</button>
+                                <h4>Dont have an account?<a href="register.html">Register here</a></h4>
+                          </form> -->
+                          <form id="form" name="myForm">
+                            <fieldset>
+                                <legend>Log in</legend>
+                                    Username:<br><input type="text" id="Username" name="Username" placeholder="username"><br></B>
+                                    Enter Password:<br><input type="password" id="Password" placeholder="password"><br><br>
+                                    <input type="submit" value="Login" id="submit"> 
+                                    <h4>No account?<a href="register.html">Sign Up</a></h4>
+                            </fieldset>
+                        </form>
+                     
                 </div>
               </aside>
         </div>
