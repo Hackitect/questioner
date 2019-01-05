@@ -23,7 +23,7 @@
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="#">Sign In</a></li>
+                    <li><a href="login.html">Sign In</a></li>
                     <li class="highlighted"><a href="register.html">Register</a></li>
                 </ul>
             </nav>
@@ -42,7 +42,7 @@
             <aside id="sidebar">
                 <div class="darkmode">
                   <h3>Register Here</h3>
-                  <form class="register">
+                  <!-- <form class="register">
                                 <div>
                                     <label>Name</label><br>
                                     <input type="text" required placeholder="Name">
@@ -60,8 +60,19 @@
                                     <input type="Password" placeholder="Password"><br>
                                 </div>
                                 <button class="button_class" type="submit">Register</button>
-                                <h4>Already registered? <a href="#">Sign In</a></h4>
-                          </form>
+                                <h4>Already registered? <a href="login.html">Sign In</a></h4>
+                          </form> -->
+                          <form id="postData" name="myForm">
+                            <fieldset>
+                                <legend>Sign Up</legend>
+                                    Username:<br><input type="text" id="Username" name="Username" placeholder="username"><br></B>
+                                    Email Address:<br><input type="email" id="Email" placeholder="email"><br>
+                                    Enter Password:<br><input type="password" id="Password" placeholder="password"><br>
+                                    Confirm Password:<br><input type="password" id="ConfirmPassword" placeholder="confirm your password"><br><br>
+                                    <input type="submit" value="Register" id="submit"> </a>
+                                    <h4>Already registered? <a href="login.html">Sign In</a></h4>
+                            </fieldset>
+                        </form>
                 </div>
               </aside>
         </div>

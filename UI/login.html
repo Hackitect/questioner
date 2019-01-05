@@ -22,8 +22,8 @@
             </div>
             <nav>
                 <ul>
-                    <li class="highlighted"><a href="index.html">Home</a></li>
-                    <li><a href="login.html">Sign In</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="highlighted"><a href="login.html">Sign In</a></li>
                     <li><a href="register.html">Register</a></li>
                 </ul>
             </nav>
@@ -41,29 +41,33 @@
         
             <aside id="sidebar">
                 <div class="darkmode">
-                    <h3>Top Question Feeds</h3>
-                        <ul id="top-feeds">
-                            <li>Python Hackathon Classes</li>
-                            <li>Meetup 2 questions</li>
-                            <li>Meetup 3 questions</li>
-                        </ul>
-                </div>               
-            </aside>
+                  <h3>Login here</h3>
+                  <!-- <form class="register">
+                                <div>
+                                    <label>Email</label><br>
+                                    <input type="email" required placeholder="Email Address">
+                                </div>
+                                <div>
+                                    <label>Password</label><br>
+                                    <input type="Password" required placeholder="Password">
+                                </div>
+                                <button class="button_class" type="submit">Login</button>
+                                <h4>Dont have an account?<a href="register.html">Register here</a></h4>
+                          </form> -->
+                          <form id="form" name="myForm">
+                            <fieldset>
+                                <legend>Log in</legend>
+                                    Username:<br><input type="text" id="Username" name="Username" placeholder="username"><br></B>
+                                    Enter Password:<br><input type="password" id="Password" placeholder="password"><br><br>
+                                    <input type="submit" value="Login" id="submit"> 
+                                    <h4>No account?<a href="register.html">Sign Up</a></h4>
+                            </fieldset>
+                        </form>
+                     
+                </div>
+              </aside>
         </div>
     </section>
-    <!-- <section id="top_feeds">
-        <div class="container">
-            <article id="top-feeds">
-                <h3 class="top-feeds">top feeds</h3>
-                    <ul>
-                        <li>Question-1</li>
-                        <li>Question-2</li>
-                        <li>Question-3</li>
-                    </ul>
-            </article>
-        </div>
-        
-    </section> -->
     <footer>
         <p>Questioner - Andela, Copyright &copy; 2019</p>
     </footer>
