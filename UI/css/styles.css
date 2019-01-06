@@ -36,19 +36,21 @@ ul{
 }
 /* Site header style */
 header{
-    background-color: rgba(20, 20, 39, 0.363);
+    background: #32839c;
     color: white;
     padding-top: 25px;
     min-height: 70px; /* if we resize the view, the header to respond well */
-    border-bottom: chocolate 3px solid;
+    border-bottom: #e8491d 2px solid;
 }
 
 header #site_header{
     float: left;
 }
 
-header #branding h2{
+header #site_header h2{
     margin: 0;
+    font-size: 30px;
+    padding: 15px;
 }
 
 header nav{
@@ -76,7 +78,7 @@ ul#top-feeds li{
     padding:20px;
     border: #cccccc solid 1px;
     margin-bottom:5px;
-    /* background:#e6e6e6; */
+    
 }
 
 header a:hover{
@@ -133,9 +135,13 @@ article#main-col p{
     font-size: 20px;
 }
 
-#main_body form .form_input{
+#main_body form .form_input[type="meetup"]{
     border: 0.5px solid  rgb(9, 104, 148);
+    padding:4px;
+    height:25px;
+    width:250px;
 }
+
 
 #main_body textarea{
     border: 0.5px solid rgb(9, 104, 148);
@@ -156,11 +162,35 @@ article#main-col p{
     background:#35424a
 }
 
+/* admin_menu */
+#admin_menu{
+    padding:10px;
+    color:#ffffff;
+    background: #32839c;
+}
+  
+#admin_menu h2{
+float:left;
+font-size: 25px;
+}
+
+/*Search bar for meetups*/
+#admin_menu form {
+float:right;
+margin-top:15px;
+}
+
+#admin_menu input[type="meetup"]{
+padding:4px;
+height:25px;
+width:250px;
+}
+
 footer{
-    background-color: rgba(20, 20, 39, 0.363);
-    border-top: chocolate 3px solid;
+    background-color: #32839c;
+    border-top: #e8491d 2px solid;
     margin-top: 20px;
     color: white;
     text-align: center;
-    padding: 20px;
+    padding: 15px;
 }
