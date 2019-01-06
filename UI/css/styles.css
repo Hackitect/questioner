@@ -81,6 +81,17 @@ ul#top-feeds li{
     
 }
 
+
+/* admin view for current meetups */
+ul#current_meetups li{
+    list-style: none;
+    padding:20px;
+    border: #cccccc solid 1px;
+    margin-bottom:5px;
+    background:#e6e6e6;
+}
+  
+
 header a:hover{
     color: grey;
     font-weight: bold;
@@ -118,6 +129,12 @@ aside#sidebar .register input, aside#sidebar .register textarea{
 article#main-col{
     float: left;
     width: 70%;
+}
+
+
+article#main-col-admin{
+    float: left;
+    width: 80%;
 }
 
 article#main-col p{
@@ -166,7 +183,7 @@ article#main-col p{
 #admin_menu{
     padding:10px;
     color:#ffffff;
-    background: #32839c;
+    background: #e6e6e6;
 }
   
 #admin_menu h2{
