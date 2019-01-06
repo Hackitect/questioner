@@ -97,6 +97,13 @@ aside#sidebar{
     margin-top: 10px;
 }
 
+
+aside#sidebar_admin{
+    float: right;
+    width: 40%;
+    margin-top: 10px;
+}
+
 aside#sidebar .register input, aside#sidebar .register textarea{
     width:90%;
     padding:5px;
@@ -119,6 +126,21 @@ article#main-col p{
 #main_body p{
     text-align: justify;
     font-size: 20px;
+}
+
+#main_body form .form_label{ 
+    text-align: justify;
+    font-size: 20px;
+}
+
+#main_body form .form_input{
+    border: 0.5px solid  rgb(9, 104, 148);
+}
+
+#main_body textarea{
+    border: 0.5px solid rgb(9, 104, 148);
+    margin-left: 0%;
+    border-radius: 5px;
 }
 
 #main_body h2{

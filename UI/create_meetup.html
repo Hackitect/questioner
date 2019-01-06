@@ -31,20 +31,30 @@
     </header>
     <section id="main_body">
         <div class="container">
-            <article id="main-col">
-                
-            </article>
-        
-            <aside id="sidebar">
-                <div class="darkmode">
+                <aside id="sidebar_admin">
+                        
                     <h3>Top Question Feeds</h3>
                         <ul id="top-feeds">
-                            <li>Python Hackathon Classes</li>
+                            <li>Python Hackathon </li>
                             <li>Meetup 2 questions</li>
                             <li>Meetup 3 questions</li>
                         </ul>
-                </div>               
-            </aside>
+                                    
+                </aside>
+                <article id="main-col-admin">                       
+                    <h3>Create Meetup</h3>
+                    <form style="margin-top: 5%">
+                        <label class="form_label">Meetup Name:</label><br>
+                        <input class="form_input" type="text" required><br>
+                        <label class="form_label">Meetup Location:</label><br>
+                        <input class="form_input" type="text" required><br>
+                        <label class="form_label">Description:</label><br>
+                        <textarea rows="10" cols="50" form="admform"></textarea><br>
+                        <input class="button_class" value="Create" type="submit"><br>
+                    </form>
+                
+                </article>
+                  
         </div>
     </section>
     <footer>
