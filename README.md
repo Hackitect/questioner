@@ -1,5 +1,5 @@
 # Questioner
-## Contributing [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)
+![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)
 
 Crowd-source questions for a meetup. Questioner helps the meetup organizer prioritize questions to be answered.
 
