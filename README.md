@@ -1,6 +1,6 @@
 # Questioner
 ![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)
-![GitHub pull-requests closed](https://img.shields.io/github/issues-pr-closed/hackitect/questioner.svg)
+[![GitHub pull-requests closed](https://img.shields.io/github/issues-pr-closed/hackitect/questioner.svg)](https://github.com/hackitect/questioner/pulls?utf8=%E2%9C%93&q=is%3Apr+is%3Aclosed)
 
 Crowd-source questions for a meetup. Questioner helps the meetup organizer prioritize questions to be answered.
 
