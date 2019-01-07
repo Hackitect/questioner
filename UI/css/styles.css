@@ -34,6 +34,18 @@ ul{
     padding-right:20px;
     color:#ffffff;
 }
+
+.button_class_user{
+    height:38px;
+    background:#2082a0;
+    border:0;
+    padding-left: 20px;
+    padding-right:20px;
+    color:#ffffff;
+    float: right;
+}
+
+
 /* Site header style */
 header{
     background: #32839c;
