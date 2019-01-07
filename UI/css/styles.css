@@ -149,10 +149,11 @@ article#main-col-admin{
     width: 80%;
 }
 
-article#main-col p{
+/* Added a border top line on the paragraphs in the main-col */
+/* article#main-col p{
     border-top: #35424a solid 1px;
 
-}
+} */
 
 #main_body p{
     text-align: justify;
