@@ -1,4 +1,6 @@
 # Questioner
+## Contributing [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)
+
 Crowd-source questions for a meetup. Questioner helps the meetup organizer prioritize questions to be answered.
 
 **The templates are hosted on github pages on the following link `https://hackitect.github.io/questioner/UI/` the project consists of the following deliverables.**
