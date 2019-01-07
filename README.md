@@ -1,10 +1,10 @@
 # Questioner
 ![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)
-[![GitHub pull-requests closed](https://img.shields.io/github/issues-pr-closed/hackitect/questioner.svg)](https://gitHub.com/hackitect/questione$
+![GitHub pull-requests closed](https://img.shields.io/github/issues-pr-closed/hackitect/questioner.svg)
 
 Crowd-source questions for a meetup. Questioner helps the meetup organizer prioritize questions to be answered.
 
-**The site templates are hosted on github pages on the following link `https://hackitect.github.io/questioner/UI/` **
+**The site templates are hosted on github pages on the following link** `https://hackitect.github.io/questioner/UI/`
 **The project consists of the following deliverables.**
 
 * [Index Page](https://hackitect.github.io/questioner/UI/index.html) This is the HTML template for the rest of the pages<br>
