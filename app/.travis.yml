@@ -1,0 +1,18 @@
+sudo: required
+
+dist: xenial
+
+language: python
+
+python:
+  - "3.5"
+
+script: pytest
+
+virtualenv:
+  system_site_package: true
+
+install:
+- pip install -r requirements.txt
+
+after_script: cd ~
