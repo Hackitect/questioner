@@ -10,6 +10,6 @@ def post_meetup():
     pass
 
 #fetch a specific meetup record
-@meetups.route("/meetups/<meetup-id>", methods=['GET'])
+@meetups.route("/meetups/<int:meetupId>", methods=['GET'])
 def get_meetup():
     pass
