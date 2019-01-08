@@ -1,18 +1,27 @@
 meetups_db = [
 {
-    "id": 1,
+    "id": 2,
     "topic": "Andela Hackathon",
     "location": "PAC University",
     "happeningOn": "2019, 1, 8, 7, 50, 55, 529588",
     "tags": ["python", "machine learning"]
     },
 {
-    "id": 2,
+    "id": 1,
     "topic": "Advanced CSS3",
     "location": "The Hub",
     "happeningOn": "2019, 1, 8, 7, 50, 55, 529588",
     "tags": ["html", "css"]
+    },
+
+    {
+    "id": 0,
+    "topic": "Ubuntu Server Hangout",
+    "location": "The Hub",
+    "happeningOn": "2019, 1, 8, 7, 50, 55, 529588",
+    "tags": ["linux", "server"]
     }
+
 ]
 
 ''' This is the response spec for a meeting
@@ -31,6 +40,7 @@ meetups_db = [
 '''
 
 class Meetups():
+
     def find_by_id(self, meetupId):
         for meetup in meetups_db:
             if meetup['id'] == meetupId:
