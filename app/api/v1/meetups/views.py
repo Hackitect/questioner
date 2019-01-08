@@ -7,9 +7,9 @@ meetups = Blueprint('meetups', __name__, url_prefix='/api/v1')
 #post a meetup
 @meetups.route("/meetups", methods=['POST'])
 def post_meetup():
-    pass
+    return jsonify({"message": "route to post a meetup"})
 
 #fetch a specific meetup record
 @meetups.route("/meetups/<int:meetupId>", methods=['GET'])
-def get_meetup():
-    pass
+def get_meetup(meetupId):
+   return jsonify({"message": "route to fetch a question"})
