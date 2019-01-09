@@ -6,7 +6,7 @@ import pytest
 class TestMeetupEndpoint(unittest.TestCase):
     def setUp(self):
         self.app = create_app()
-        self.app.testinig = True
+        self.app.testing = True
         self.client = self.app.test_client()
 
         ''' This is the response spec for a meeting

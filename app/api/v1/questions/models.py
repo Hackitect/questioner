@@ -11,3 +11,7 @@ QuestionDB = [
         "votes": 3
     }
 ]
+
+class Question:
+    def save(self):
+        QuestionDB.append(self)
