@@ -1,6 +1,6 @@
 import unittest
 from app import create_app
-from flask import jsonify, jsonify
+from flask import jsonify, json
 import pytest
 
 class TestMeetupEndpoint(unittest.TestCase):
@@ -35,8 +35,11 @@ class TestMeetupEndpoint(unittest.TestCase):
             }]
         }
     def getmeetup(self):
-        """ Test for returning meeting using meeting id"""
-        pass
+        """ Test for returning meetups """
+        response = self.client.get('api/v1/meetups')
+        result = json.loads(response.data.decode('utf-8'))
+        self.assertEqual(response.status_code, 200)
+        self.assertIn('Andela Hackathon', str(result))
     
     def postmeetup(self):
         """ Test for Creating an meetup record. """
@@ -44,7 +47,20 @@ class TestMeetupEndpoint(unittest.TestCase):
                                                     data =  json.dumps(self.test_1),
                                                     content_type = "application/json")
         result = json.loads(response.data.decode('utf-8')) 
+        self.assertEqual(response.status_code, 201)
+        self.assertIn('Andela Hackathon', str(result))
+
+    def test_api_get_meetup_by_id(self):
+        """ Test for returning meeting using meeting id [will use id = 1] """
+
+        postval = self.client.post('/api/v1/meetups', 
+                                                    data =  json.dumps(self.test_1),
+                                                    content_type = "application/json")
+        self.assertEqual(postval.status_code, 201)                                           
+        response = self.client.get('api/v1/meetups/1')
+        result = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response.status_code, 200)
+        self.assertIn('The Hub', str(result))
       
 if __name__ == '__main__':
     unittest.main()
