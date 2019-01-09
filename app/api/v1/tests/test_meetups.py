@@ -39,6 +39,7 @@ class TestMeetupEndpoint(unittest.TestCase):
         response = self.client.get('api/v1/meetups')
         result = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response.status_code, 200)
+        self.assertIn('Andela Hackathon', str(result))
     
     def postmeetup(self):
         """ Test for Creating an meetup record. """
