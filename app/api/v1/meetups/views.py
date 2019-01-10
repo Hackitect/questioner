@@ -14,7 +14,8 @@ def post_meetup():
 # test funtion to return all meetup records
 @meetups.route("/meetups", methods=['GET'])
 def get_all_meetup():
-    return jsonify(meetups_class.all())
+    # return jsonify(meetups_class.all()), 200
+    return jsonify({ 'status': 200, 'data': meetups_class.all()})
 
 #fetch a specific meetup record
 @meetups.route("/meetups/<int:meetupId>", methods=['GET'])
