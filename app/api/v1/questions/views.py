@@ -19,11 +19,15 @@ def post_question():
         body = data['body']
         createdBy = data['userId']
         createdOn = datetime.datetime.now()
+        meetup = 1
+        votes = 0
         
 
-        newQ = {id: id, title: title, body: body, createdBy: createdBy, createdOn: createdOn}
+        newQ = {"id": id, "title": title, "body": body, "meetup": meetup, "createdBy": createdBy, "createdOn": createdOn, "votes": votes}
         
-        return jsonify(question_class.save(newQ))
+
+        question_class.save(newQ)
+        return jsonify({ 'status': 201, 'data': newQ, }), 201 
        
     
     else:
