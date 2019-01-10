@@ -9,7 +9,7 @@ questions = Blueprint('questions', __name__, url_prefix='/api/v1')
 
 #post a meetup
 @questions.route("/questions", methods=['POST'])
-def post_question(title,body,userId):
+def post_question():
     data = request.get_json
     # return jsonify({"message": "route to post a question"}), 201
     
@@ -17,12 +17,14 @@ def post_question(title,body,userId):
         id = len(QuestionDB)+1
         title  = data['title']
         body = data['body']
-        createdOn = datetime.datetime.now()
         createdBy = data['userId']
+        createdOn = datetime.datetime.now()
+        
 
         newQ = {id: id, title: title, body: body, createdBy: createdBy, createdOn: createdOn}
-
-        return jsonify(QuestionDB.append(newQ)), 201
+        
+        return jsonify(question_class.save(newQ))
+       
     
     else:
         return jsonify({'status':400,'error': 'you must have title, body and userId'}), 400
