@@ -14,7 +14,8 @@ def post_meetup():
 # test funtion to return all meetup records
 @meetups.route("/meetups", methods=['GET'])
 def get_all_meetup():
-    return jsonify(meetups_class.all())
+    # return jsonify(meetups_class.all()), 200
+    return jsonify({ 'status': 200, 'data': meetups_class.all()})
 
 #fetch a specific meetup record
 @meetups.route("/meetups/<int:meetupId>", methods=['GET'])
@@ -22,3 +23,8 @@ def get_meetup(meetupId):
     # Testing using postman to return the json string - to replace with method in meetups models class Meetups
     # return jsonify({"message": "route to fetch a question"})
     return jsonify(meetups_class.find_by_id(meetupId))
+
+@meetups.route("/meetups/upcoming/", methods=['GET'])
+def get_upcoming():
+    #fetch all upcoming meetups
+    return jsonify(meetups_class.upcoming())
