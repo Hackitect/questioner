@@ -1,4 +1,5 @@
 import datetime
+from datetime import timedelta
 
 meetups_db = [
     {
@@ -75,16 +76,14 @@ class Meetups:
 
         """ to get upcoming meeting, the date has to be in the future
             we therefore need to loop through every meetup - happeningOn - value
-
-            if its greater than now, the return the meetup       
-        
+            if its greater than now, the return the meetup     
         """    
         
         if len(meetups_db) == 0:
             return {"message": "no meetups found"}
         else:
             for meetup in meetups_db:
-                time_difference = abs((meetup['happeningOn'] - today).days)
-                return {"message": time_difference}
+                time_difference = timedelta(meetup['happeningOn'])
+                return time_difference
             # return[meetup for meetup in meetups_db if meetup['happeningOn']==meetupId]
 
