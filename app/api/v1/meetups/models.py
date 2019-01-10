@@ -1,6 +1,5 @@
 import datetime
 from datetime import timedelta
-import pytz
 
 meetups_db = [
     {
