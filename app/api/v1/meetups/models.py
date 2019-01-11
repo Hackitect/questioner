@@ -71,6 +71,9 @@ class Meetups:
             return {"message": "empty database"}
         return [meetup for meetup in meetups_db]
 
+    def new(self, new_meetup):
+        meetups_db.append(new_meetup)
+
     def upcoming(self):
         today = '{}'.format(datetime.datetime.now())
 
