@@ -75,7 +75,7 @@ class Meetups:
         meetups_db.append(new_meetup)
 
     def upcoming(self):
-        today = '{}'.format(datetime.datetime.now())
+        # today = '{}'.format(datetime.datetime.now())
 
         """ to get upcoming meeting, the date has to be in the future
             we therefore need to loop through every meetup - happeningOn - value

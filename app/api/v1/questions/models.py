@@ -13,7 +13,7 @@ QuestionDB = [
 ]
 
 class Question:
-    def save(self):
+    def save(self, newQ):
         QuestionDB.append(self)
     
     def upvote(self):
