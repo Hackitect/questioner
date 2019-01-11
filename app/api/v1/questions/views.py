@@ -30,7 +30,7 @@ def vote(question_id, status):
 @questions.route("/questions/<int:question_id>/upvote", methods=['PATCH'])
 def upvote(question_id):
     vote(question_id, downvote)
-    return jsonify({"status": 201, "message": "you have upvoted this question"})
+    return jsonify({"status": 201, "message": "you have upvoted this question"}), 201
 
 # route to downvote a question
 # the route Downvote (decrease votes by 1) a specific question.
@@ -38,7 +38,7 @@ def upvote(question_id):
 
 def downvote(question_id):
     vote(question_id, upvote)
-    return jsonify({"status": 201, "message": "you have downvoted this question"})
+    return jsonify({"status": 201, "message": "you have downvoted this question"}), 201
 
 #post a meetup
 @questions.route("/questions", methods=['POST'])
