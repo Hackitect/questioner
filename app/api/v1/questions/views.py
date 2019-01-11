@@ -7,6 +7,17 @@ question_class = ObjQuestions.Question()
 
 questions = Blueprint('questions', __name__, url_prefix='/api/v1')
 
+#upvote a question
+@questions.route("/questions/<int:question-id>/upvote", methods=['PATCH'])
+def upvote():
+    data = request.get_json
+    id = data['question-id']
+    if data:
+        for que in QuestionDB:
+            if que['id'] == id:
+                que['votes'] == que['votes']+1
+                return jsonify ({"status": 201, "message": "you have upvoted this question"})
+
 #post a meetup
 @questions.route("/questions", methods=['POST'])
 def post_question():
