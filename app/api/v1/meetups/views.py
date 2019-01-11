@@ -6,6 +6,12 @@ meetups_class = ObjMeetUps.Meetups()
 
 meetups = Blueprint('meetups', __name__, url_prefix='/api/v1')
 
+# route to rsvp a meetup
+@meetups.route("/meetups/<meetup_id>/rsvps", methods=['POST'])
+def rsvp():
+    data = request.get_json()
+
+
 #post a meetup
 @meetups.route("/meetups", methods=['POST'])
 def post_meetup():
