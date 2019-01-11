@@ -6,6 +6,30 @@ meetups_class = ObjMeetUps.Meetups()
 
 meetups = Blueprint('meetups', __name__, url_prefix='/api/v1')
 
+""" Refer to this response spec for rsvp
+{
+“status” : Integer,
+    “data” : [
+        {
+                “meetup” : Integer, // meetup record primary key
+                “topic” : String, // meetup topic
+                “status”: String // [yes, no or maybe]
+    }
+]"""
+
+# route to rsvp a meetup
+@meetups.route("/meetups/<int:meetup_id>/rsvps", methods=['POST'])
+def rsvp(meetup_id):
+    data = request.get_json()
+    Id = data['meetup_id']
+    topic = ['topic']
+    status = ['status']
+    
+    if data:
+        rsvp_rec = {'id': Id, 'topic': topic, 'status': status}
+        #call the method to add the rsvp
+        return jsonify({"status": 201, "data": data})
+
 #post a meetup
 @meetups.route("/meetups", methods=['POST'])
 def post_meetup():
