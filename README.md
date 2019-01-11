@@ -9,7 +9,7 @@ Crowd-source questions for a meetup. Questioner helps the meetup organizer prior
 [![GitHub pull-requests closed](https://img.shields.io/github/issues-pr-closed/hackitect/questioner.svg)](https://github.com/hackitect/questioner/pulls?utf8=%E2%9C%93&q=is%3Apr+is%3Aclosed)
 [![Maintainability](https://api.codeclimate.com/v1/badges/255af33a3d7ff27426aa/maintainability)](https://codeclimate.com/github/Hackitect/questioner/maintainability)
 
-# Endpoints required for testing
+# Endpoints to be tested
 <!-- * `POST /meetup` Create a meetup record<br>
 * `GET /meetups/<meetup-id>`Fetch a specific meetup record<br>
 * `GET /meetups/upcoming/ ` Fetch all upcoming meetup records<br>
