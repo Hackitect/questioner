@@ -11,19 +11,18 @@ def vote(question_id, status):
     data = request.get_json()
     id = data['question_id']
     params = 0
-    msg = ""
+    # msg = ""
     if data:
         if status == "upvote":
             params = 1
-            msg = {"status": 201, "message": "you have upvoted this question"}
+            
         elif status == "downvote":
             params = -1
-            msg = {"status": 201, "message": "you have downvoted this question"}
-    
+                
         for que in QuestionDB:
             if que['id'] == id:
                 que['votes'] == que['votes'] + params
-                return msg
+                return True
     else:
         return jsonify({'status':400,'error': 'you must have a questionId'}), 400
 
@@ -31,6 +30,7 @@ def vote(question_id, status):
 @questions.route("/questions/<int:question_id>/upvote", methods=['PATCH'])
 def upvote(question_id):
     vote(question_id, downvote)
+    return jsonify({"status": 201, "message": "you have upvoted this question"})
 
 # route to downvote a question
 # the route Downvote (decrease votes by 1) a specific question.
@@ -38,7 +38,7 @@ def upvote(question_id):
 
 def downvote(question_id):
     vote(question_id, upvote)
-    
+    return jsonify({"status": 201, "message": "you have downvoted this question"})
 
 #post a meetup
 @questions.route("/questions", methods=['POST'])
