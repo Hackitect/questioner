@@ -12,7 +12,7 @@ questions = Blueprint('questions', __name__, url_prefix='/api/v1')
 def upvote(question_id):
     data = request.get_json()
     id = data['question_id']
-    # return jsonify ({"status": 201, "message": "you have upvoted this question"})
+    # return jsonify({"your return value is": id})  - used to test whether we are getting back que id
     if data:
         for que in QuestionDB:
             if que['id'] == id:
