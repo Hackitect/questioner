@@ -71,8 +71,11 @@ class Meetups:
             return {"message": "empty database"}
         return [meetup for meetup in meetups_db]
 
+    def new(self, new_meetup):
+        meetups_db.append(new_meetup)
+
     def upcoming(self):
-        today = '{}'.format(datetime.datetime.now())
+        # today = '{}'.format(datetime.datetime.now())
 
         """ to get upcoming meeting, the date has to be in the future
             we therefore need to loop through every meetup - happeningOn - value
