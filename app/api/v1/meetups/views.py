@@ -11,7 +11,7 @@ meetups = Blueprint('meetups', __name__, url_prefix='/api/v1')
 def post_meetup():
     data = request.get_json()
     if data:
-        topic = data[topic] #e.g. "Ubuntu Server Hangout"
+        topic = data['topic'] #e.g. "Ubuntu Server Hangout"
         location = data['location'] #e.g. The Hub"
         happeningOn = datetime.date.now() # "2019, 2, 8, 7, 50, 55, 529588"
         tags = data['tags'] #e.g. ["linux", "server"]
