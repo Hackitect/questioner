@@ -20,7 +20,7 @@ Crowd-source questions for a meetup. Questioner helps the meetup organizer prior
 
 | METHOD  	| ROUTE  	|   DESCRIPTION	|
 |---	|---	|---	|
-|   POST	| `/meetup`   	|  Create a meetup recorD 	|
+|   POST	| `/meetup`   	|  Create a meetup record 	|
 |   GET	|  `/meetups/<meetup_id> `	|  fetch a specific meetup record 	|
 |   GET	|  `/meetups/upcoming/`	|  Fetch all upcoming meetup records 	|
 |   POST	| `/questions ` 	|   Create a question for a specific meetup 	|
