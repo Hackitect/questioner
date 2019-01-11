@@ -53,10 +53,10 @@ class TestMeetupEndpoint(unittest.TestCase):
     def test_api_get_meetup_by_id(self):
         """ Test for returning meeting using meeting id [will use id = 1] """
 
-        postval = self.client.post('/api/v1/meetups', 
+        postval = self.client.get('/api/v1/meetups', 
                                                     data =  json.dumps(self.test_1),
                                                     content_type = "application/json")
-        self.assertEqual(postval.status_code, 201)                                           
+        self.assertEqual(postval.status_code, 200)                                           
         response = self.client.get('api/v1/meetups/1')
         result = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response.status_code, 200)
