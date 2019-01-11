@@ -15,3 +15,6 @@ QuestionDB = [
 class Question:
     def save(self):
         QuestionDB.append(self)
+    
+    def upvote(self):
+        pass
