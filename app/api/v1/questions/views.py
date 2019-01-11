@@ -8,15 +8,27 @@ question_class = ObjQuestions.Question()
 questions = Blueprint('questions', __name__, url_prefix='/api/v1')
 
 #upvote a question
-@questions.route("/questions/<int:question-id>/upvote", methods=['PATCH'])
+@questions.route("/questions/<int:question_id>/upvote", methods=['PATCH'])
 def upvote():
     data = request.get_json
-    id = data['question-id']
+    id = data['question_id']
     if data:
         for que in QuestionDB:
             if que['id'] == id:
                 que['votes'] == que['votes']+1
                 return jsonify ({"status": 201, "message": "you have upvoted this question"})
+
+# route to downvote a question
+# the route Downvote (decrease votes by 1) a specific question.
+@questions.route("/questions/<int:question_id>/downvote", methods=['PATCH'])
+def downvote():
+    data = request.get_json
+    id = data['question_id']
+    if data:
+        for que in QuestionDB:
+            if que['id'] == id:
+                que['votes'] == que['votes']-1
+                return jsonify ({"status": 201, "message": "you have downvoted this question"})
 
 #post a meetup
 @questions.route("/questions", methods=['POST'])
