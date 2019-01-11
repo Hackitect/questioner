@@ -17,6 +17,7 @@ meetups = Blueprint('meetups', __name__, url_prefix='/api/v1')
     }
 ]"""
 
+meetup_rsvp = []
 # route to rsvp a meetup
 @meetups.route("/meetups/<int:meetup_id>/rsvps", methods=['POST'])
 def rsvp(meetup_id):
@@ -27,6 +28,7 @@ def rsvp(meetup_id):
     
     if data:
         rsvp_rec = {'id': Id, 'topic': topic, 'status': status}
+        meetup_rsvp.append(rsvp_rec)
         #call the method to add the rsvp
         return jsonify({"status": 201, "data": data})
 
@@ -34,10 +36,10 @@ def rsvp(meetup_id):
 @meetups.route("/meetups", methods=['POST'])
 def post_meetup():
     data = request.get_json()
-    topic = data['topic'] #e.g. "Ubuntu Server Hangout"
-    location = data['location'] #e.g. The Hub"
-    happeningOn = datetime.date.now() # "2019, 2, 8, 7, 50, 55, 529588"
-    tags = data['tags'] #e.g. ["linux", "server"]
+    topic = data['topic']
+    location = data['location']
+    happeningOn = datetime.date.now()
+    tags = data['tags']
     
     if data:
         new_meetup={'topic': topic, 'location': location, 'happeningOn': happeningOn, 'tags': tags}
