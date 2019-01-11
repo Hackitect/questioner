@@ -16,7 +16,7 @@ virtualenv:
 
 install:
 - pip install -r requirements.txt
-
+- pip install coveralls
 after_success:
 - coveralls
 
