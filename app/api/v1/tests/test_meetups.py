@@ -34,7 +34,8 @@ class TestMeetupEndpoint(unittest.TestCase):
                 "tags": ["python", "machine learning"]
             }]
         }
-        self.test_2 = {}
+        self.test_2 = {"topic": "Andela Hackathon","location": "PAC University", "happeningOn": "","tags": ["python", "machine learning"]}
+    }
     def test_getmeetup(self):
         """ Test for returning meetups """
         response = self.client.get('api/v1/meetups')
@@ -45,7 +46,7 @@ class TestMeetupEndpoint(unittest.TestCase):
     def test_postmeetup(self):
         """ Test for Creating an meetup record. """
         response = self.client.post('/api/v1/meetups', 
-                                                    data =  json.dumps(self.test_1),
+                                                    data =  json.dumps(self.test_2),
                                                     content_type = "application/json")
         result = json.loads(response.data.decode('utf-8')) 
         self.assertEqual(response.status_code, 201)
