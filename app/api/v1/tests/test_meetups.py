@@ -34,14 +34,15 @@ class TestMeetupEndpoint(unittest.TestCase):
                 "tags": ["python", "machine learning"]
             }]
         }
-    def getmeetup(self):
+        self.test_2 = {}
+    def test_getmeetup(self):
         """ Test for returning meetups """
         response = self.client.get('api/v1/meetups')
         result = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response.status_code, 200)
         self.assertIn('Andela Hackathon', str(result))
     
-    def postmeetup(self):
+    def test_postmeetup(self):
         """ Test for Creating an meetup record. """
         response = self.client.post('/api/v1/meetups', 
                                                     data =  json.dumps(self.test_1),
@@ -53,7 +54,7 @@ class TestMeetupEndpoint(unittest.TestCase):
     def test_api_get_meetup_by_id(self):
         """ Test for returning meeting using meeting id [will use id = 1] """
 
-        postval = self.client.get('/api/v1/meetups', 
+        postval = self.client.post('/api/v1/meetups', 
                                                     data =  json.dumps(self.test_1),
                                                     content_type = "application/json")
         self.assertEqual(postval.status_code, 200)                                           

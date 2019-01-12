@@ -3,7 +3,7 @@ from app import create_app
 from flask import jsonify, json
 import pytest
 
-class TestMeetupEndpoint(unittest.TestCase):
+class TestQuestionsEndpoint(unittest.TestCase):
     def setUp(self):
         self.app = create_app()
         self.app.testinig = True
@@ -23,7 +23,7 @@ class TestMeetupEndpoint(unittest.TestCase):
         }
 
     
-    def postquestion(self):
+    def test_postquestion(self):
         """ Test for posting a question record. """
         response = self.client.post('/api/v1/question', 
                                                     data =  json.dumps(self.test_1),
