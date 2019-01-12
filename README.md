@@ -7,6 +7,7 @@ Crowd-source questions for a meetup. Questioner helps the meetup organizer prior
 [![Build Status](https://travis-ci.org/Hackitect/questioner.svg?branch=develop)](https://travis-ci.org/Hackitect/questioner)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/Hackitect/questioner/pulls)
 [![GitHub pull-requests closed](https://img.shields.io/github/issues-pr-closed/hackitect/questioner.svg)](https://github.com/hackitect/questioner/pulls?utf8=%E2%9C%93&q=is%3Apr+is%3Aclosed)
+[![Coverage Status](https://coveralls.io/repos/github/Hackitect/questioner/badge.svg?branch=develop)](https://coveralls.io/github/Hackitect/questioner?branch=develop)
 [![Maintainability](https://api.codeclimate.com/v1/badges/255af33a3d7ff27426aa/maintainability)](https://codeclimate.com/github/Hackitect/questioner/maintainability)
 
 # Endpoints to be tested
