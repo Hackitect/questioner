@@ -23,7 +23,7 @@ class TestQuestionsEndpoint(unittest.TestCase):
         }
 
     
-    def test_postquestion(self):
+    def postquestion(self):
         """ Test for posting a question record. """
         response = self.client.post('/api/v1/question', 
                                                     data =  json.dumps(self.test_1),

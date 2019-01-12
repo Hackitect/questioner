@@ -34,8 +34,9 @@ class TestMeetupEndpoint(unittest.TestCase):
                 "tags": ["python", "machine learning"]
             }]
         }
-        self.test_2 = {"topic": "Andela Hackathon","location": "PAC University", "happeningOn": "","tags": ["python", "machine learning"]}
-    }
+        self.test_2 = {"topic": "Andela Hackathon","location": "PAC University", 
+                        "happeningOn": "","tags": ["python", "machine learning"]}
+    
     def test_getmeetup(self):
         """ Test for returning meetups """
         response = self.client.get('api/v1/meetups')
