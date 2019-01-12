@@ -49,7 +49,7 @@ def post_question():
     title  = data['title']
     body = data['body']
     createdBy = data['userId']
-    createdOn = datetime.date.now()
+    createdOn = datetime.datetime.now()
     meetup = data['meetupId']
     votes = 0
     if data:  
