@@ -15,6 +15,7 @@ class TestMeetupEndpoint(unittest.TestCase):
         self.test_2 = {"topic": "Andela Hackathon","location": "PAC University", 
                         "happeningOn": "","tags": ["python", "machine learning"]}
         self.test_rsvp = {"meetup_id": 1, "topic": "Python", "status": "Yes"}
+        self.rsvp_empty = []
     
     def test_getmeetup(self):
         """ Test for returning meetups """
@@ -47,9 +48,9 @@ class TestMeetupEndpoint(unittest.TestCase):
     def test_api_rsvp_meeting(self):
         """ test for RSVP meeting """
         response = self.client.post('/meetups/1/rsvps', 
-        data = json.dumps(self.test_rsvp), content_type = "application/json")
+        data = json.dumps(self.rsvp_empty), content_type = "application/json")
         # result = json.loads(response.data.decode('utf-8'))
-        self.assertEqual(response.status_code, 201)
+        self.assertEqual(response.status_code, 404)
         # self.assertIn("Python", str(result))      
 if __name__ == '__main__':
     unittest.main()
