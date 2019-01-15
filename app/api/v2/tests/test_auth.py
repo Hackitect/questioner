@@ -1,7 +1,7 @@
 import unittest
 from app import create_app
 from flask import jsonify, json
-import pytest
+import pytest, datetime
 
 class TestAuthEndpoint(unittest.TestCase):
     def setUp(self):
@@ -18,7 +18,7 @@ class TestAuthEndpoint(unittest.TestCase):
                 "email" : "mwangicharles@gmail.com",
                 "phoneNumber" : "0722867603",
                 "username" : "cnjenga",
-                "registered" : self.date,
+                "registered" : "self.date",
                 "isAdmin" : 1      
                 }
     
