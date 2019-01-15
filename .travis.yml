@@ -1,0 +1,23 @@
+sudo: required
+
+dist: xenial
+
+language: python
+
+python:
+  - "3.5"
+
+script: 
+ - pytest --cov=app/
+ - coveralls
+
+virtualenv:
+  system_site_package: true
+
+install:
+- pip install -r requirements.txt
+- pip install coveralls
+after_success:
+- coveralls
+
+after_script: cd ~
