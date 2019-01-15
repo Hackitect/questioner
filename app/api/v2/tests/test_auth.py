@@ -11,7 +11,7 @@ class TestAuthEndpoint(unittest.TestCase):
         self.date = datetime.datetime.now()
 
         """ mock data for testing endpoint """
-        self.test_signup = {
+        self.test_signup_data = {
                 "firstname" : "Charles",
                 "lastname" : "Mwangi",
                 "othername" : "Njenga",
@@ -21,11 +21,12 @@ class TestAuthEndpoint(unittest.TestCase):
                 "registered" : "self.date",
                 "isAdmin" : 1      
                 }
+        self.test_signin_data = {"email": "mwangicharles@gmail.com", "password": "password123"}
     
     def test_signup(self):
         """ Test for posting a question record. """
         response = self.client.post('/api/v2/auth/signup', 
-                                                    data =  json.dumps(self.test_signup),
+                                                    data =  json.dumps(self.test_signup_data),
                                                     content_type = "application/json")
         result = json.loads(response.data.decode('utf-8')) 
         self.assertEqual(response.status_code, 201)
@@ -33,7 +34,7 @@ class TestAuthEndpoint(unittest.TestCase):
     
     def test_signin(self):
         response = self.client.patch('/api/v2/auth/login', 
-        data=json.dumps(self.test_signin), 
+        data=json.dumps(self.test_signin_data), 
         content_type = "application/json")
         self.assertEqual(response.status_code, 201)
         
