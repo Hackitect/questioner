@@ -8,7 +8,7 @@ validate = Validators()
 
 class Users():
 
-	def signup(self, email, username, password, timestamp):
+	def signup(self, email, firstname, lastname, username, password, timestamp):
 				
 		if validate.is_valid_password(password) is False:
 			return {"message": "password does not meet requirements"}
@@ -18,7 +18,7 @@ class Users():
 			return {"message": "Provide valid email of the correct format"}
 		else:
 			id = len(users_list) + 1
-			new_user = {'id': id, 'username': username, 'password': password, 
+			new_user = {'id': id, 'username': username, 'firstname': firstname, 'lastname':lastname, 'password': password, 
 						'email': email, 'timestamp': timestamp}
 			users_list.append(new_user)
 			return {
