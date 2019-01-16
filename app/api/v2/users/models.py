@@ -1,29 +1,27 @@
 import psycopg2
-from psycopg2 import Error
+from app.api.v2.utils import database
 
 
+class Users():
+    def save(self, firstname, lastname, email, username, phonenumber, password):
+        """ insert a new users into the users table"""
+        sql = """INSERT INTO users firstname, lastname, email,
+                username, phonenumber, password
+                VALUES(%s,%s,%s,%s,%s) RETURNING user_id;"""
+        conn = None
+        user_id = None
 
-try:
-    conn = psycopg2.connect(
-    user = "questioner",
-    password = "password123",
-    host = "localhost",
-    port = "5432",
-    database = "questioner"
-    )
+        conn = database.db_connect()
+        cursor = conn.cursor()
+        cursor.execute(sql)
+        user_id = cursor.fetchone()[0]
+        conn.commit()
+        cursor.close
 
-    cursor = conn.cursor()
-    cursor.execute('SELECT VERSTION()')
-    db_version = cursor.fetchone()
-    print (db_version)
-except (Exception, psycopg2.DatabaseError) as error:
-    raise error
-finally:
-    if (conn):
-        cursor.close()
-        conn.close()
-
-#Create the users model
-
-def create_user_table():
-    pass
+        return {
+            "message": "User created successfully",
+            "username": username,
+            "email": email,
+            "user_id": user_id
+            }
+        
