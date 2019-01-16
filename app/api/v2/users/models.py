@@ -4,7 +4,7 @@ from psycopg2 import Error
 
 
 try:
-    db = psycopg2.connect(
+    conn = psycopg2.connect(
     user = "questioner",
     password = "password123",
     host = "localhost",
@@ -14,5 +14,7 @@ try:
 except (Exception, psycopg2.DatabaseError) as error:
     raise error
 finally:
-    if db:
-        db.close()
+    if conn:
+        conn.close()
+
+#Create the users model
