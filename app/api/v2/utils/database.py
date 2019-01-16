@@ -67,8 +67,10 @@ def create_tables():
         CREATE TABLE IF NOT EXISTS questions(
             questions_id serial PRIMARY KEY,
             createdon TIMESTAMP,
-            FOREIGN KEY (user_id)
-            REFERENCES users (user_id)
+            title VARCHAR(30) NOT NULL,
+            body VARCHAR(100) NOT NULL,
+            meetupid INTEGER REFERENCES meetups(meetups_id),
+            createdby INTEGER REFERENCES users (user_id)
             ON UPDATE CASCADE ON DELETE CASCADE
         );
         """,
