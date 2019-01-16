@@ -11,6 +11,15 @@ postgres=# CREATE DATABASE questioner;
 CREATE DATABASE
 postgres=# 
 
+postgres=# CREATE USER questioner with encrypted password 'password123';
+CREATE ROLE
+postgres=# 
+
+postgres=# GRANT ALL PRIVILEGES ON DATABASE questioner TO questioner;
+GRANT
+postgres=# 
+
+
 """
 def db_connect():
     try:
@@ -69,8 +78,8 @@ def create_tables():
             createdon TIMESTAMP,
             title VARCHAR(30) NOT NULL,
             body VARCHAR(100) NOT NULL,
-            meetupid INTEGER REFERENCES meetups(meetups_id),
-            createdby INTEGER REFERENCES users (user_id)
+            FOREIGN KEY (meetupid) REFERENCES meetups(meetups_id),
+            FOREIGN KEY (createdby) REFERENCES users (user_id)
             ON UPDATE CASCADE ON DELETE CASCADE
         );
         """,
