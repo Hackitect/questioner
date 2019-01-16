@@ -28,14 +28,16 @@ def db_connect():
 
 # function to call to close the connection
 
-# def db_close():
-#     if (conn):
-#         cursor.close()
-#         conn.close()
+def db_close():
+    conn = db_connect()
+    cursor = conn.cursor()
+    if (conn):
+        cursor.close()
+        conn.close()
 
 # #Create the users model
 
-def create_table():
+def create_tables():
     ''' create the tables to be used in the projec
         i.e. users, meetups, questions and answers
     '''
@@ -75,12 +77,34 @@ def create_table():
             answers_id serial PRIMARY KEY,
             data VARCHAR NOT NULL
         );
-        """
-    )
-
+        """)
+    conn = None
+    try:
+        conn = db_connect()
+        cursor = conn.cursor()
+        for table in tables:
+            cursor.execute(table)
+            cursor.close()
+            conn.commit()
+    except (Exception, psycopg2.DatabaseError) as error:
+        print(error)
+    
+    finally:
+        if conn is not None:
+            conn.close()
+ 
 # #snippets
 #     cursor = conn.cursor()
 #     cursor.execute('SELECT VERSTION()')
 #     db_version = cursor.fetchone()
 #     print (db_version)
-   
+
+def main():
+    create_tables()
+
+
+if __name__ == ('__main__'):
+    main()
+    
+
+
