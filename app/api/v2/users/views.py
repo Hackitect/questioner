@@ -26,4 +26,7 @@ def signup():
 
 @users.route('/auth/login', methods=['POST'])
 def login():
-    pass
+    data = request.get_json()
+    email = data['email']
+    password = data['password']
+    return jsonify({"Status": 201, "Message": "User logged in successfully"})

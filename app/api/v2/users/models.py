@@ -51,6 +51,9 @@ class Users():
         cursor.close()
         conn.close
         if password == results:
-            return jsonify({"Status": 201, "Message": "User logged in successfully"})
+            return "login successful"
+            # return jsonify({"Status": 201, "Message": "User logged in successfully"})
+        else:
+            return "username or password does not match"
 
         
