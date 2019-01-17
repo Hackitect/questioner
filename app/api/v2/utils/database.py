@@ -17,7 +17,7 @@ postgres=#
 
 postgres=# GRANT ALL PRIVILEGES ON DATABASE questioner TO questioner;
 GRANT
-postgres=# 
+postgres=# \c questioner = connects to questioner database
 
 questioner=# \dt
             List of relations
