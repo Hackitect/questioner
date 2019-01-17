@@ -29,6 +29,7 @@ questioner=# \dt
  public | users     | table | questioner
 (4 rows)
 
+to drop tables that have relationships use DROP TABLE table_name CASCADE;
 
 """
 def db_connect():
@@ -105,8 +106,9 @@ def create_tables():
         cursor = conn.cursor()
         for table in tables:
             cursor.execute(table)
-            conn.commit()
-            # cursor.close() - removed this as execute table was not working as cursor was already closed
+        cursor.close()
+        conn.commit()
+        
     except (Exception, psycopg2.DatabaseError) as error:
         print(error)
     
@@ -128,6 +130,3 @@ def main():
 # python database.py
 if __name__ == ('__main__'):
     main()
-    
-
-
