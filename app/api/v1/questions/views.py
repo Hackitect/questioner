@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify, jsonify
+from flask import Blueprint, request, jsonify, json
 import datetime
 from app.api.v1.questions import models as ObjQuestions
 from app.api.v1.questions.models import QuestionDB
