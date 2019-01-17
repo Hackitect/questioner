@@ -33,7 +33,7 @@ class TestAuthEndpoint(unittest.TestCase):
         # self.assertIn('mwangicharles@gmail.com', str(result))
     
     def test_signin(self):
-        response = self.client.patch('/api/v2/auth/login', 
+        response = self.client.post('/api/v2/auth/login', 
         data=json.dumps(self.test_signin_data), 
         content_type = "application/json")
         self.assertEqual(response.status_code, 201)

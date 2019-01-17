@@ -6,14 +6,14 @@ meetups_db = [
         "id": 4,
         "topic": "Andela Hackathon",
         "location": "PAC University",
-        "happeningOn": "2019, 3, 8, 7, 50, 55, 529588",
+        "happeningOn": "2019-03-17 12:37'",
         "tags": ["python", "machine learning"]
         },
     {
         "id": 1,
         "topic": "Advanced CSS3",
         "location": "The Hub",
-        "happeningOn": "2010, 1, 8, 7, 50, 55, 529588",
+        "happeningOn": "2019-02-17 12:37'",
         "tags": ["html", "css"]
         },
 
@@ -21,7 +21,7 @@ meetups_db = [
         "id": 0,
         "topic": "Ubuntu Server Hangout",
         "location": "The Hub",
-        "happeningOn": "2019, 2, 8, 7, 50, 55, 529588",
+        "happeningOn": "2010-01-17 12:00'",
         "tags": ["linux", "server"]
     }
 
@@ -79,29 +79,21 @@ class Meetups:
 
         """ to get upcoming meeting, the date has to be in the future
             we therefore need to loop through every meetup - happeningOn - value
-            if its greater than now, the return the meetup 
-
-            >>> import datetime
-            >>> tday = datetime.datetime.now()
-            >>> tday
-            datetime.datetime(2019, 1, 10, 11, 20, 0, 629918)
-            >>> tdelta = datetime.timedelta(days=10)
-            >>> print(tday - tdelta)
-            2018-12-31 11:20:00.629918
-    
+            if its greater than now, the return the meetup          
         """    
         
         if len(meetups_db) == 0:
             return {"message": "no meetups found"}
         else:
-            for meetup in meetups_db:
+            resp = [meetup for meetup in meetups_db if meetup['happeningOn'] > datetime.datetime.now().strftime('%Y-%m-%d %H:%M')]
+            return resp
                 # return the time delta
                 # if negative then meetup has already taken place, return only +ve dates
                 # meetup['happeningOn' "2019, 3, 8, 7, 50, 55, 529588" 
                 # today "2019-01-10 11:55:55.892852"
                 # datetime.datetime.strptime(meetup['happeningOn'], '%Y-%m-%d %H:%M:%S,%f')
                 # time_delta = timedelta(meetup['happeningOn'] - today)
-                happening = datetime.datetime(meetup['happeningOn'])   
-                return happening
+                # if meetup['happeningOn'] > datetime.datetime.now().strftime('%Y-%m-%d %H:%M'):
+                #     return meetup
+               
             # return[meetup for meetup in meetups_db if meetup['happeningOn']==meetupId]
-

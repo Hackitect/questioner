@@ -38,7 +38,7 @@ def post_meetup():
     data = request.get_json()
     topic = data['topic']
     location = data['location']
-    happeningOn = datetime.datetime.now()
+    happeningOn = data['happeningOn']
     tags = data['tags']
     
     if data:
