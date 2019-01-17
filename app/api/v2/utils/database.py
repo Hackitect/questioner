@@ -17,9 +17,9 @@ postgres=#
 
 postgres=# GRANT ALL PRIVILEGES ON DATABASE questioner TO questioner;
 GRANT
-postgres=# \c questioner = connects to questioner database
+postgres=# \\c questioner = connects to questioner database
 
-questioner=# \dt
+questioner=# \\dt
             List of relations
  Schema |   Name    | Type  |   Owner    
 --------+-----------+-------+------------
@@ -122,6 +122,34 @@ def create_tables():
 #     cursor.execute('SELECT VERSTION()')
 #     db_version = cursor.fetchone()
 #     print (db_version)
+
+def username_exists(username):
+    sql = """SELECT username FROM users;"""
+    conn = db_connect()
+    cursor = conn.cursor()
+    cursor.execute(sql)
+    result = cursor.fetchall()
+    if username == result:
+        # username exists
+        return True
+     
+def email_exists(email):
+    sql = """SELECT email FROM users;"""
+    conn = db_connect()
+    cursor = conn.cursor()
+    cursor.execute(sql)
+    result = cursor.fetchall()
+    if email == result:
+        # username exists
+        return True
+
+def run_sql(sql):
+    conn = None
+    conn = db_connect()
+    cursor = conn.cursor()
+    cursor.execute(sql)
+    result = cursor.fetchall()
+    return result
 
 def main():
     create_tables()
