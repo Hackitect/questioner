@@ -45,17 +45,7 @@ def db_connect():
         return conn
     except (Exception, psycopg2.DatabaseError) as error:
         raise error
-
-# function to call to close the connection
-
-def db_close():
-    conn = db_connect()
-    cursor = conn.cursor()
-    if (conn):
-        cursor.close()
-        conn.close()
-
-# #Create the users model
+#Create the tables for the project
 
 def create_tables():
     ''' create the tables to be used in the projec
