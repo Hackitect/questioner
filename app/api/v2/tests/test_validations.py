@@ -9,6 +9,10 @@ class TestsforValidations(unittest.TestCase):
         self.client = self.app.test_client()
         self.username1 = 'x'
 
-def test_password(self, Validators):
+def Test_password(self, Validators):
     self.assertEqual(is_valid_email('2222'), False)
+
+
+if __name__ == '__main__':
+    unittest.main()
 

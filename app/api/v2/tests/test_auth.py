@@ -24,13 +24,14 @@ class TestAuthEndpoint(unittest.TestCase):
         self.test_signin_data = {"email": "mwangicharles@gmail.com", "password": "password123"}
         self.test_nullDATA = {}
     
+    
     def test_signup(self):
         """ Test for posting a question record. """
         response = self.client.post('/api/v2/auth/signup', 
-                                                    data =  json.dumps(self.test_signup_data),
+                                                    data =  json.dumps(self.test_nullDATA),
                                                     content_type = "application/json")
         # result = json.loads(response.data.decode('utf-8')) 
-        self.assertEqual(response.status_code, 201)       
+        self.assertEqual(response.status_code, 400)       
     
     def test_signin(self):
         response = self.client.post('/api/v2/auth/login', 
