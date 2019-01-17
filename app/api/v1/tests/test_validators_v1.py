@@ -1,13 +1,7 @@
 import unittest
-from app import create_app
-from app.api.v2.utils.validators import Validators
+from app.api.v1.utils.validators import Validators
 
 class TestsforValidations(unittest.TestCase, Validators):
-    def setUp(self):
-        self.app = create_app()
-        self.app.testing = True
-        self.client = self.app.test_client()
-        self.username1 = 'x'
 
     def test_password(self):
         self.assertEqual(self.is_valid_password('2222'), False)
@@ -29,4 +23,3 @@ class TestsforValidations(unittest.TestCase, Validators):
 
 if __name__ == '__main__':
     unittest.main()
-
