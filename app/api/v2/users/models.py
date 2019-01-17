@@ -1,5 +1,6 @@
 import psycopg2
 from app.api.v2.utils import database, validators
+from flask import json, jsonify
 
 
 """
@@ -41,3 +42,15 @@ class Users():
             "email": email
             # "user_id": user_id
             }
+    def login(self, email, password):
+        sql = """SELECT password from users where email='" + email +"';"""
+        conn = database.db_connect()
+        cursor = conn.cursor
+        cursor.execute(sql)
+        results = cursor.fetchall()
+        cursor.close()
+        conn.close
+        if password == results:
+            return jsonify({"Status": 201, "Message": "User logged in successfully"})
+
+        
