@@ -35,10 +35,6 @@ class TestMeetupEndpoint(unittest.TestCase):
 
     def test_api_get_meetup_by_id(self):
         """ Test for returning meeting using meeting id [will use id = 1] """
-
-        response = self.client.get('/api/v1/meetups', 
-                                                    data =  json.dumps(self.test_2),
-                                                    content_type = "application/json")
         # self.assertEqual(postval.status_code, 200)                                           
         response = self.client.get('/api/v1/meetups/1')
         result = json.loads(response.data.decode('utf-8'))
@@ -48,11 +44,13 @@ class TestMeetupEndpoint(unittest.TestCase):
     def test_api_rsvp_meeting(self):
         """ test for RSVP meeting """
         response = self.client.post('/meetups/1/rsvps', 
-        data = json.dumps(self.rsvp_empty), content_type = "application/json")
+        data = json.dumps(self.rsvp_empty), 
+        content_type = "application/json")
         # result = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response.status_code, 404)
         # self.assertIn("Python", str(result))
-
+    
+       
     def test_api_meetups_upcoming(self):
         response = self.client.get('/api/v1/meetups/upcoming/')
         self.assertEqual(response.status_code, 200)
@@ -62,5 +60,4 @@ class TestMeetupEndpoint(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
 
 if __name__ == '__main__':
-    unittest.main()
-        
+    unittest.main()  

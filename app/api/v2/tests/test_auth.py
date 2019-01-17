@@ -30,8 +30,7 @@ class TestAuthEndpoint(unittest.TestCase):
                                                     data =  json.dumps(self.test_signup_data),
                                                     content_type = "application/json")
         # result = json.loads(response.data.decode('utf-8')) 
-        self.assertEqual(response.status_code, 201)
-        # self.assertIn('mwangicharles@gmail.com', str(result))
+        self.assertEqual(response.status_code, 201)       
     
     def test_signin(self):
         response = self.client.post('/api/v2/auth/login', 
@@ -43,7 +42,7 @@ class TestAuthEndpoint(unittest.TestCase):
         response = self.client.post('api/v2/auth/login',
         data=json.dumps(self.test_nullDATA),
         content_type = "application/json")
-        self.assertEqual(response.status_code, 404)
+        self.assertEqual(response.status_code, 400)
         
     
        
