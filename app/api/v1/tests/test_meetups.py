@@ -19,7 +19,7 @@ class TestMeetupEndpoint(unittest.TestCase):
     
     def test_getmeetup(self):
         """ Test for returning meetups """
-        response = self.client.get('api/v1/meetups')
+        response = self.client.get('/api/v1/meetups')
         result = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response.status_code, 200)
         self.assertIn('Andela Hackathon', str(result))
@@ -40,7 +40,7 @@ class TestMeetupEndpoint(unittest.TestCase):
                                                     data =  json.dumps(self.test_2),
                                                     content_type = "application/json")
         # self.assertEqual(postval.status_code, 200)                                           
-        response = self.client.get('api/v1/meetups/1')
+        response = self.client.get('/api/v1/meetups/1')
         result = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response.status_code, 200)
         self.assertIn('The Hub', str(result))
@@ -51,7 +51,16 @@ class TestMeetupEndpoint(unittest.TestCase):
         data = json.dumps(self.rsvp_empty), content_type = "application/json")
         # result = json.loads(response.data.decode('utf-8'))
         self.assertEqual(response.status_code, 404)
-        # self.assertIn("Python", str(result))      
+        # self.assertIn("Python", str(result))
+
+    def test_api_meetups_upcoming(self):
+        response = self.client.get('/api/v1/meetups/upcoming/')
+        self.assertEqual(response.status_code, 200)
+    
+    def test_get_all(self):
+        response = self.client.get('/api/v1/meetups')
+        self.assertEqual(response.status_code, 200)
+
 if __name__ == '__main__':
     unittest.main()
         
