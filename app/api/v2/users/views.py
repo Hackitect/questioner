@@ -29,4 +29,8 @@ def login():
     data = request.get_json()
     email = data['email']
     password = data['password']
-    return jsonify({"Status": 201, "Message": "User logged in successfully"})
+
+    #test whether values in the POST body are being captured
+    return jsonify({"Status": 201, "Message": "User logged in successfully", 
+                    "email": email, "password": password})
+    # return jsonify(user_object.login(email, password))

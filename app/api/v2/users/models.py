@@ -17,8 +17,8 @@ questioner=#
 """
 
 class Users():    
-       
-        
+
+            
     def save(self, firstname, lastname, email, username, phonenumber, password):
 
         '''Before we save the user, verify first if username already exists'''
@@ -42,18 +42,18 @@ class Users():
             "email": email
             # "user_id": user_id
             }
+
     def login(self, email, password):
-        sql = """SELECT password from users where email='" + email +"';"""
+        # sql = """SELECT password from users where email= %s;""" %(email)
         conn = database.db_connect()
-        cursor = conn.cursor
-        cursor.execute(sql)
+        cursor = conn.cursor        
+        cursor.execute("SELECT password from users where email = %s" %(email))
         results = cursor.fetchall()
         cursor.close()
         conn.close
         if password == results:
-            return "login successful"
-            # return jsonify({"Status": 201, "Message": "User logged in successfully"})
+            return {"Status": 201, "Message": "User logged in successfully"}
         else:
-            return "username or password does not match"
+            return {"username or password does not match"}
 
         
