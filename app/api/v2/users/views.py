@@ -26,11 +26,15 @@ def signup():
 
 @users.route('/auth/login', methods=['POST'])
 def login():
+    if not request.json or not 'email' in request.json or not 'password' in request.json:
+        return jsonify ({"label":"you must enter both email and password"}), 400
+    
     data = request.get_json()
     email = data['email']
     password = data['password']
 
-    #test whether values in the POST body are being captured
-    return jsonify({"Status": 201, "Message": "User logged in successfully", 
-                    "email": email, "password": password}), 201
-    # return jsonify(user_object.login(email, password))
+    if data:
+        #test whether values in the POST body are being captured
+        return jsonify({"Status": 201, "Message": "User logged in successfully", 
+                        "email": email, "password": password}), 201
+        # return jsonify(user_object.login(email, password))
