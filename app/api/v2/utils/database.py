@@ -19,6 +19,16 @@ postgres=# GRANT ALL PRIVILEGES ON DATABASE questioner TO questioner;
 GRANT
 postgres=# 
 
+questioner=# \dt
+            List of relations
+ Schema |   Name    | Type  |   Owner    
+--------+-----------+-------+------------
+ public | answers   | table | questioner
+ public | meetups   | table | questioner
+ public | questions | table | questioner
+ public | users     | table | questioner
+(4 rows)
+
 
 """
 def db_connect():
@@ -78,8 +88,8 @@ def create_tables():
             createdon TIMESTAMP,
             title VARCHAR(30) NOT NULL,
             body VARCHAR(100) NOT NULL,
-            FOREIGN KEY (meetupid) REFERENCES meetups(meetups_id),
-            FOREIGN KEY (createdby) REFERENCES users (user_id)
+            meetupid INTEGER REFERENCES meetups(meetups_id),
+            createdby INTEGER REFERENCES users(user_id)
             ON UPDATE CASCADE ON DELETE CASCADE
         );
         """,
@@ -95,13 +105,14 @@ def create_tables():
         cursor = conn.cursor()
         for table in tables:
             cursor.execute(table)
-            cursor.close()
             conn.commit()
+            # cursor.close() - removed this as execute table was not working as cursor was already closed
     except (Exception, psycopg2.DatabaseError) as error:
         print(error)
     
     finally:
         if conn is not None:
+            cursor.close()
             conn.close()
  
 # #snippets
@@ -113,7 +124,8 @@ def create_tables():
 def main():
     create_tables()
 
-
+# The below line is used to call the module directly from command line to test tables creation
+# python database.py
 if __name__ == ('__main__'):
     main()
     
