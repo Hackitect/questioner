@@ -44,13 +44,7 @@ meetups_db = [
 
 class Meetups:
     
-    # def __init__(self, topic, location, tags):
-    #     self.id = len(meetups_db)+1
-    #     self.topic = topic
-    #     self.location = location
-    #     self.tags = tags
-
-  
+   
 
     @staticmethod
     def find_by_id(meetupId):
