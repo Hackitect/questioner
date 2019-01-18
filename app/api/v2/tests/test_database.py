@@ -25,7 +25,7 @@ class DatabaseTests(unittest.TestCase):
     def tearDown(self):
         conn.close()
     
-    def test_to_create_tables(self):
+    def Test_to_create_tables(self):
         self.cursor = conn.cursor
         self.cursor.execute("SELECT username, password from users limit 1;")
         results = self.cursor.fetchall()
