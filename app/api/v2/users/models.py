@@ -1,5 +1,6 @@
 import psycopg2
-from app.api.v2.utils import database, validators
+from app.api.v2.utils import database
+from app.api.v2.utils.validators import Validators
 from flask import json, jsonify
 
 
@@ -16,7 +17,9 @@ questioner=#
 
 """
 
-class Users():    
+class Users(Validators):
+    def __init__(self):
+        pass
 
             
     def save(self, firstname, lastname, email, username, phonenumber, password):
@@ -26,11 +29,13 @@ class Users():
             raise Exception('Username already exist, choose another one')
         if database.email_exists(email):
             raise Exception('Email address already taken, use anohe')
+        if self.is_valid_email(email) is False:
+            raise Exception("Error, Email choosen does not meet requirements")
 
         """ insert a new users into the users table"""
         sql = """INSERT INTO users (firstname, lastname, email,
                 username, phonenumber, password)
-                VALUES(%s,%s,%s,%s,%s) RETURNING user_id;"""
+                VALUES('firstname','lastname','email','username','phonenumber', 'password') RETURNING user_id;"""
         
         database.run_sql(sql)
 
