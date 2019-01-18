@@ -44,7 +44,7 @@ def post_meetup():
     if data:
         new_meetup={'topic': topic, 'location': location, 'happeningOn': happeningOn, 'tags': tags}
         # meetups_class.save()
-        return jsonify({"status": 201, 'data': new_meetup}), 201
+        return jsonify({"status": 201, 'data': meetups_class.new(new_meetup)}), 201
 
 # test funtion to return all meetup records
 @meetups.route("/meetups", methods=['GET'])
