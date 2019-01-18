@@ -43,6 +43,8 @@ def downvote(question_id):
 #post a meetup
 @questions.route("/questions", methods=['POST'])
 def post_question():
+    if not request.json or not 'title' in request.json or not 'body' in request.json:
+        return jsonify({"message": "you must have a title and body to post question"})
     data = request.get_json()
     # return jsonify({"message": "route to post a question"}), 201
     id = len(QuestionDB)+1
