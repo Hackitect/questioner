@@ -35,16 +35,19 @@ def rsvp(meetup_id):
 #post a meetup
 @meetups.route("/meetups", methods=['POST'])
 def post_meetup():
-    data = request.get_json()
-    topic = data['topic']
-    location = data['location']
-    happeningOn = data['happeningOn']
-    tags = data['tags']
+        if not request.json or not 'topic' in request.json or not 'location' in request.json or not 'happeningOn' in request.json:
+                return jsonify({"Message": "You have to provide the topic, location and data of meetup"})
+
+        data = request.get_json()
+        topic = data['topic']
+        location = data['location']
+        happeningOn = data['happeningOn']
+        tags = data['tags']
     
-    if data:
-        new_meetup={'topic': topic, 'location': location, 'happeningOn': happeningOn, 'tags': tags}
-        # meetups_class.save()
-        return jsonify({"status": 201, 'data': meetups_class.new(new_meetup)}), 201
+        if data:
+                new_meetup={'topic': topic, 'location': location, 'happeningOn': happeningOn, 'tags': tags}
+                # meetups_class.save()
+                return jsonify({"status": 201, 'data': meetups_class.new(new_meetup)}), 201
 
 # test funtion to return all meetup records
 @meetups.route("/meetups", methods=['GET'])
