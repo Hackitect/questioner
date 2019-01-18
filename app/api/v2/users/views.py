@@ -35,6 +35,9 @@ def login():
 
     if data:
         #test whether values in the POST body are being captured
-        return jsonify({"Status": 201, "Message": "User logged in successfully", 
-                        "email": email, "password": password}), 201
-        # return jsonify(user_object.login(email, password))
+        # return jsonify({"Status": 201, "Message": "User logged in successfully", 
+        #                 "email": email, "password": password}), 201
+        return jsonify(user_object.login(email, password))
+@users.route('/auth/users', methods=['GET'])
+def get_all():
+    return jsonify({"users": user_object.all()})

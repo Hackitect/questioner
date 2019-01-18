@@ -24,6 +24,7 @@ class Users(Validators):
     def all(self):
 
         sql = "SELECT * FROM users"
+        cursor = db.cursor()
         cursor.execute(sql)
         results = cursor.fetchall()
         return results
@@ -32,10 +33,9 @@ class Users(Validators):
 
             
     def save(self, firstname, lastname, email, username, phonenumber, password):
-
-        # '''Before we save the user, verify first if username already exists'''
-        # if database.username_exists(username):
-        #     raise Exception('Username already exist, choose another one')
+        '''Before we save the user, verify first if username already exists'''
+        if self.username_exists(username, email):
+            raise Exception('Username or email already exist, choose another one')
         # if database.email_exists(email):
         #     raise Exception('Email address already taken, use anohe')
         # if self.is_valid_email(email) is False:
@@ -44,29 +44,43 @@ class Users(Validators):
         """ insert a new users into the users table"""
         sql = """INSERT INTO users (firstname, lastname, email,
                 username, phonenumber, password)
-                VALUES('firstname','lastname','email','username','phonenumber', 'password') RETURNING user_id;"""
-        
-        # database.run_sql(sql)
-
-        cursor.execute(sql)
+                VALUES(%s,%s,%s,%s,%s,%s) RETURNING user_id;"""
+       
+        user_id = None
+        cursor.execute(sql,
+            (firstname, 
+            lastname, 
+            email, 
+            username, 
+            phonenumber, 
+            password)
+            )
+        db.conn.commit()
+        # cursor.close()
 
         return {
             "message": "User created successfully",
             "username": username,
-            "email": email
-            # "user_id": user_id
+            "email": email,
+            "user_id": user_id
             }
 
     def login(self, email, password):
-        # sql = """SELECT password from users where email= %s;""" %(email)
+        sql = """SELECT email, password from users where email=%s and password=%s;"""
               
-        cursor.execute("SELECT password from users where email = %s" %(email))
-        results = cursor.fetchall()
-        cursor.close()
-        
-        if password == results:
+        cursor.execute(sql, (email, password))
+        results = cursor.fetchone()
+               
+        if results:
             return {"Status": 201, "Message": "User logged in successfully"}
         else:
-            return {"username or password does not match"}
-
+            return {"Status": "username or password does not match"}
+    
+    def username_exists(self, username, email):
         
+        sql = """SELECT username, email FROM users WHERE username=%s or email=%s;"""
+        cursor.execute(sql, (username, email,))
+        result = cursor.fetchall()
+        if result:
+            # username exists
+            return True    

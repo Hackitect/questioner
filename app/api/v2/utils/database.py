@@ -1,6 +1,6 @@
 import psycopg2
 from psycopg2 import Error
-
+# from psycopg2.extras import RealDictCursor
 """
 hackitect@hackitect-LV:~$ sudo -u postgres psql postgres
 [sudo] password for hackitect: 
@@ -34,25 +34,25 @@ to drop tables that have relationships use DROP TABLE table_name CASCADE;
 """
 class Database():
     
-    def __init__(self):
+    # def __init__(self):
         
-        self.host = 'localhost',
-        self.name = 'questioner',
-        self.user = 'questioner',        
-        self.password = 'password123'
+    #     # self.host = 'localhost',
+    #     self.dbname = 'questioner'
+    #     self.user = 'questioner'       
+    #     self.password = 'password123'
         
-        try:
-            self.conn = psycopg2.connect(
-                host = self.host,
-                dbname = self.name,
-                user = self.user,
-                password = self.password                
-                )
-            
-            self.cursor = self.conn.cursor
+    try:
+        conn = psycopg2.connect(
+            host = "localhost",
+            dbname = "questioner",
+            user = "questioner",
+            password = "password123"                
+            )
         
-        except (Exception, psycopg2.DatabaseError) as error:
-            raise error
+        cursor = conn.cursor
+    
+    except (Exception, psycopg2.DatabaseError) as error:
+        raise error
 #Create the tables for the project
 
     def create_tables(self):
@@ -113,16 +113,7 @@ class Database():
                 self.cursor.close()
                 self.conn.close()
   
-    # def username_exists(self, username):
-    #     sql = """SELECT username FROM users;"""
-    #     conn = db_connect()
-    #     cursor = conn.cursor()
-    #     cursor.execute(sql)
-    #     result = cursor.fetchall()
-    #     if username == result:
-    #         # username exists
-    #         return True
-        
+          
     # def email_exists(self, email):
     #     sql = """SELECT email FROM users;"""
     #     conn = db_connect()
