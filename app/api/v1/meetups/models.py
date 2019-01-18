@@ -50,22 +50,14 @@ class Meetups:
     #     self.location = location
     #     self.tags = tags
 
-    def save(self):
-        meetups_db.append(self)
-
-
+  
 
     @staticmethod
     def find_by_id(meetupId):
         # list comprehension
         return[meetup for meetup in meetups_db if meetup['id']==meetupId]
 
-        # for meetup in meetups_db:
-        #     if meetup['id'] == meetupId:
-        #         return meetup
-            # else:
-            #     return {"message": "No meetup found with that id"}
-    
+         
     def all(self):
         if len(meetups_db) == 0:
             return {"message": "empty database"}
@@ -94,6 +86,3 @@ class Meetups:
                 # datetime.datetime.strptime(meetup['happeningOn'], '%Y-%m-%d %H:%M:%S,%f')
                 # time_delta = timedelta(meetup['happeningOn'] - today)
                 # if meetup['happeningOn'] > datetime.datetime.now().strftime('%Y-%m-%d %H:%M'):
-                #     return meetup
-               
-            # return[meetup for meetup in meetups_db if meetup['happeningOn']==meetupId]
