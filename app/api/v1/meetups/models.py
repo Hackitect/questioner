@@ -65,6 +65,7 @@ class Meetups:
 
     def new(self, new_meetup):
         meetups_db.append(new_meetup)
+        return new_meetup
 
     def upcoming(self):
         # today = '{}'.format(datetime.datetime.now())
