@@ -2,6 +2,7 @@ import os
 from instance.config import app_config
 from flask import Flask
 from flask_bcrypt import Bcrypt 
+from flask_jwt_extended import JWTManager
 
 
 bcrypt = Bcrypt() # Encryption function
@@ -21,6 +22,7 @@ def create_app():
     from app.api.v1.users.views import auth
 
     bcrypt.init_app(app)
+    jwt = JWTManager(app)
     #register the blueprints
     app.register_blueprint(MeetV2)
     app.register_blueprint(questions)
