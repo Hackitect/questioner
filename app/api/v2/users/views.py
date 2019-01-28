@@ -26,10 +26,10 @@ def signup():
 
 @users.route('/auth/login', methods=['POST'])
 def login():
-    if not request.json or not 'email' in request.json or not 'password' in request.json:
-        return jsonify ({"label":"you must enter both email and password"}), 400
-    
     data = request.get_json()
+    if not request.json or not 'email' in data or not 'password' in data:
+        return jsonify ({"label":"you must enter both email and password"}), 400
+        
     email = data['email']
     password = data['password']
 

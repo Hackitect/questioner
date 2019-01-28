@@ -2,6 +2,9 @@ import psycopg2
 from app.api.v2.utils import database
 from app.api.v2.utils.validators import Validators
 from flask import json, jsonify
+from app import create_app, bcrypt
+from flask_jwt_extended import (create_access_token, create_refresh_token, jwt_required
+                                get_jwt_identity, jwt_refresh_token_required)
 
 db = database.Database()
 cursor = db.cursor()
@@ -47,13 +50,15 @@ class Users(Validators):
                 VALUES(%s,%s,%s,%s,%s,%s) RETURNING user_id;"""
        
         user_id = None
+        hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
+        access_token = create_access_token(identity = 'username')
         cursor.execute(sql,
             (firstname, 
             lastname, 
             email, 
             username, 
             phonenumber, 
-            password)
+            hashed_password)
             )
         db.conn.commit()
         # cursor.close()
@@ -62,7 +67,8 @@ class Users(Validators):
             "message": "User created successfully",
             "username": username,
             "email": email,
-            "user_id": user_id
+            "user_id": user_id,
+            "Access_Token": access_token
             }
 
     def login(self, email, password):
