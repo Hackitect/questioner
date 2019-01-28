@@ -41,3 +41,4 @@ def login():
 @users.route('/auth/users', methods=['GET'])
 def get_all():
     return jsonify({"users": user_object.all()})
+

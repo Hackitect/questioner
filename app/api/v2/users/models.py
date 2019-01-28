@@ -82,5 +82,5 @@ class Users(Validators):
         cursor.execute(sql, (username, email,))
         result = cursor.fetchall()
         if result:
-            # username exists
+            # username or email exists
             return True    
