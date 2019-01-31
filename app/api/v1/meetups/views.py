@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify, jsonify
+from flask import Blueprint, request, jsonify
 import datetime
 from app.api.v1.meetups import models as ObjMeetUps
 
