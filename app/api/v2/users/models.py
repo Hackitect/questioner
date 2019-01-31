@@ -50,7 +50,7 @@ class Users(Validators):
                 VALUES(%s,%s,%s,%s,%s,%s) RETURNING user_id;"""
                
         hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
-        access_token = create_access_token(identity = 'username')
+        access_token = create_access_token(identity = 'email')
         cursor.execute(sql,
             (firstname, 
             lastname, 
