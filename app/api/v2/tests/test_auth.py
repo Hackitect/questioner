@@ -37,7 +37,7 @@ class TestAuthEndpoint(unittest.TestCase):
         response = self.client.post('/api/v2/auth/login', 
         data=json.dumps(self.test_signin_data), 
         content_type = "application/json")
-        self.assertEqual(response.status_code, 201)
+        self.assertEqual(response.status_code, 200)
     
     def test_sign_nullDATA(self):
         response = self.client.post('api/v2/auth/login',
