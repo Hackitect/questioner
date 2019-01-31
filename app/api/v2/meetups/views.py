@@ -8,7 +8,18 @@ meetups = Blueprint('meetups', __name__, url_prefix='/api/v2')
 def delete():
     pass
 
-
+@meetups.route("/meetups/", methods=['POST'])
+def create_meetup():
+    data = request.get_json()
+    if not data or not data['topic'] or not data['location'] or not data['happening_on']:
+        return jsonify({"status": 400, "message": "missing some field"})
+        meetup_data = Meetup(
+            data['topic'],
+            data['location'],
+            data['happening_on'],
+            data['tags']
+        )
+        new_meetup = meetup_data.create_meetup()
 # def login_required(f):
 #     @wraps(f)
 #     def wrap(*args, **kwargs):
