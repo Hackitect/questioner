@@ -7,6 +7,10 @@ language: python
 python:
   - "3.5"
 
+before script:
+ - psql -c "CREATE ROLE questioner with createdb login password 'password123'" postgres
+ - psql -c "CREATE DATABASE questioner owner questioner" postgres
+ - python3 manage.py create_tables
 script: 
  - pytest --cov=app/
  - coveralls

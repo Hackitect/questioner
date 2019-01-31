@@ -76,7 +76,9 @@ class Database():
             CREATE TABLE IF NOT EXISTS meetups(
                 meetups_id serial PRIMARY KEY,
                 topic VARCHAR(30) NOT NULL,
+                location VARCHAR(30) NOT NULL,
                 happeningon TIMESTAMP,
+                created_on TIMESTAMP,
                 tags VARCHAR(100)
             );
             """,
@@ -87,6 +89,7 @@ class Database():
                 createdon TIMESTAMP,
                 title VARCHAR(30) NOT NULL,
                 body VARCHAR(100) NOT NULL,
+                votes INTEGER DEFAULT 0,
                 meetupid INTEGER REFERENCES meetups(meetups_id),
                 createdby INTEGER REFERENCES users(user_id)
                 ON UPDATE CASCADE ON DELETE CASCADE
@@ -111,15 +114,4 @@ class Database():
         finally:
             if self.conn is not None:
                 self.cursor.close()
-                self.conn.close()
-  
-          
-    # def email_exists(self, email):
-    #     sql = """SELECT email FROM users;"""
-    #     conn = db_connect()
-    #     cursor = conn.cursor()
-    #     cursor.execute(sql)
-    #     result = cursor.fetchall()
-    #     if email == result:
-    #         # username exists
-    #         return True  
+                self.conn.close()  
