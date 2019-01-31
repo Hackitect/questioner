@@ -37,13 +37,7 @@ class Database:
     
     def db(self):
         try:
-            conn = psycopg2.connect(
-                host = "localhost",
-                dbname = "questioner",
-                user = "questioner",
-                password = "password123"                
-                )
-            
+            conn = psycopg2.connect("dbname=questioner user=questioner password=password123")            
             # cursor = conn.cursor
             print ("Successfully connected to database")
             return conn
