@@ -4,6 +4,7 @@ from app import create_app
 
 app = create_app()
 db = Database()
+# cursor = db.cursor()
 manager = Manager(app)
 
 @manager.command

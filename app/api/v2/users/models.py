@@ -1,14 +1,14 @@
 import psycopg2
-from app.api.v2.utils import database
+from app.api.v2.utils.database import Database
 from app.api.v2.utils.validators import Validators
 from flask import json, jsonify
 from app import create_app, bcrypt
 from flask_jwt_extended import (create_access_token, create_refresh_token, jwt_required,
                                 get_jwt_identity, jwt_refresh_token_required)
 
-db = database.Database()
-cursor = db.cursor()
-
+db = Database()
+conn = db.db()
+cursor = conn.cursor()
 
 """
 questioner=# INSERT INTO users (firstname, lastname, email, username, phonenumber, password)
@@ -27,7 +27,7 @@ class Users(Validators):
     def all(self):
 
         sql = "SELECT * FROM users"
-        cursor = db.cursor()
+        
         cursor.execute(sql)
         results = cursor.fetchall()
         return results
@@ -59,7 +59,7 @@ class Users(Validators):
             phonenumber, 
             hashed_password)
             )
-        db.conn.commit()
+        conn.commit()
         # cursor.close()
 
         return {

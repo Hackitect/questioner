@@ -15,7 +15,7 @@ def create_app():
     app.config['JWT_SECRET_KEY'] = '9a231f01574449fd12a4f4dcde53abb3a3d384cdb0367086'
 
     #import the blueprints for our routes
-    # from app.api.v1.meetups.views import meetups
+    from app.api.v1.meetups.views import meetups_V1
     from app.api.v2.meetups.views import meetups as MeetV2
     from app.api.v1.questions.views import questions
     from app.api.v2.users.views import users
@@ -24,6 +24,7 @@ def create_app():
     bcrypt.init_app(app)
     jwt = JWTManager(app)
     #register the blueprints
+    app.register_blueprint(meetups_V1)
     app.register_blueprint(MeetV2)
     app.register_blueprint(questions)
     app.register_blueprint(users)
