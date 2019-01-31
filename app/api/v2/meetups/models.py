@@ -1,13 +1,14 @@
 import psycopg2
 import datetime
-from app.api.v2.utils import database
+from app.api.v2.utils.database import Database
 from app.api.v2.utils.validators import Validators
 from flask import json, jsonify
 from flask_jwt_extended import (create_access_token, create_refresh_token, jwt_required,
                                 get_jwt_identity, jwt_refresh_token_required)
 
-db = database.Database()
-cursor = db.cursor()
+db = Database()
+conn = db.db()
+cursor = conn.cursor()
 now = datetime.datetime.now()
 
 class Meetup():
@@ -38,11 +39,11 @@ class Meetup():
             self.created_on)
             )
         meetup = cursor.fetchone()
-        db.conn.commit()
+        conn.commit()
         return meetup
 
     @staticmethod
     def delete_meetup(meetup_id):
         sql = """DELETE * from meetups WHERE meetup_id=%s;"""
         cursor.execute(sql, (meetup_id))
-        db.conn.commit()
+        conn.commit()

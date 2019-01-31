@@ -26,7 +26,7 @@ class TestAuthEndpoint(unittest.TestCase):
     
     
     def test_signup(self):
-        """ Test for posting a question record. """
+        """ Test sign up in using null data. """
         response = self.client.post('/api/v2/auth/signup', 
                                                     data =  json.dumps(self.test_nullDATA),
                                                     content_type = "application/json")

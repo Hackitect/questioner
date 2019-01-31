@@ -19,7 +19,7 @@ class DatabaseTests(unittest.TestCase):
                 port = '5432'
             )
             return conn
-        except (Exception, psycopg2.DatabasError) as error:
+        except (Exception, psycopg2.DatabaseError) as error:
             raise error     
 
     def tearDown(self):
