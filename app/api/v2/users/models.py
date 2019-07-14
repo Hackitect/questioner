@@ -12,7 +12,7 @@ cursor = conn.cursor()
 
 """
 questioner=# INSERT INTO users (firstname, lastname, email, username, phonenumber, password)
-VALUES ('Charles', 'Njenga', 'mwangicharles@gmail.com', 'Hackitect', '0722867603','password123') RETURNING user_id;
+VALUES ('John', 'Doe', 'johndoe@user.com', 'Johndoe', '0700220022','password123') RETURNING user_id;
  user_id 
 ---------
        1
