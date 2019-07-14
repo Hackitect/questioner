@@ -12,12 +12,12 @@ class TestAuthEndpoint(unittest.TestCase):
 
         """ mock data for testing endpoint """
         self.test_signup_data = {
-                "firstname" : "Charles",
-                "lastname" : "Mwangi",
-                "othername" : "Njenga",
-                "email" : "mwangicharles@gmail.com",
-                "phoneNumber" : "0722867603",
-                "username" : "cnjenga",
+                "firstname" : "John",
+                "lastname" : "Doe",
+                "othername" : "Another",
+                "email" : "johndoe@test.com",
+                "phoneNumber" : "07220000222",
+                "username" : "johndoe",
                 "registered" : "self.date",
                 "isAdmin" : 1      
                 }
